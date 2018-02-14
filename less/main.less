@@ -1,0 +1,209 @@
+@import "../css/bootstrap.min.css";
+@import "vendors/jquery-ui.min.less";
+@import "helpers/_reset";
+@import "helpers/_fonts";
+@import "helpers/_lesshat";
+@import "helpers/_utils";
+@import "helpers/_base";
+@import "layout/_header";
+@import "layout/_footer";
+@import "layout/_modal";
+
+.main {
+  background: url("../img/main-background.png") no-repeat center;
+  background-size: cover;
+  background-attachment: fixed;
+  padding: 210px 0;
+  .carousel {
+    max-width: 700px;
+    margin: 0 auto;
+  }
+  .carousel-item {
+    flex-direction: column;
+  }
+  color: white;
+  .title {
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 55px;
+    margin-bottom: 30px;
+    color: white;
+  }
+  .text {
+    font-size: 22px;
+    line-height: 33px;
+    margin-bottom: 50px;
+    color: white;
+  }
+  .button {
+    .fit-content();
+    min-width: 250px;
+    text-align: center;
+    padding: 15px 0;
+    border: 2px solid white;
+    color: white;
+    font-size: 18px;
+    text-transform: uppercase;
+    .border-radius(32px);
+    transition: all .2s;
+    margin-right: 15px;
+    &:hover {
+      background-color: white;
+      color: @gray;
+    }
+  }
+  .carousel-indicators {
+    bottom: -70px;
+    li {
+      margin: 0 1px;
+      .size(18px);
+      max-width: 18px;
+      background: url("../img/carousel-dot.png") no-repeat center center;
+      transition: background .2s;
+      &.active {
+        background-image: url("../img/carousel-dot-active.png");
+      }
+    }
+  }
+}
+
+.home-page {
+  @import "pages/_index";
+}
+
+@import "pages/_contacts";
+@import "pages/_news.less";
+@import "pages/_guestbook";
+@import "pages/_invest";
+@import "pages/_partner";
+@import "pages/_faq";
+
+.modal {
+  background: url("../img/modal.png") no-repeat center;
+  background-size: cover;
+  &.sign-up {
+    input {
+      margin-bottom: 10px !important;
+    }
+  }
+  .modal-dialog {
+    width: 285px;
+    .border-radius(6px);
+  }
+  .modal-content {
+    border: none !important;
+  }
+  .close {
+    .size(16px);
+    background: url("../img/close.png");
+    .opacity(1);
+  }
+  .modal-title {
+    color: #585b60;
+    font-size: 18px;
+  }
+  .modal-header {
+    padding: 25px 20px 15px 30px;
+    border-color: #e1e8ee;
+  }
+  .modal-body {
+    padding: 25px 20px;
+    .input {
+      position: relative;
+      &:after {
+        content: '';
+        position: absolute;
+      }
+      &.valid-ok {
+        &:after {
+          .size(16px, 12px);
+          background: url("../img/modal-ok.png");
+          right: 20px;
+          top: 17px;
+        }
+      }
+      &.valid-false {
+        input {
+          border-color: #e25b5b;;
+        }
+        &:after {
+          .size(12px);
+          background: url("../img/modal-false.png");
+          right: 20px;
+          top: 17px;
+        }
+      }
+    }
+    input {
+      text-indent: 20px;
+      margin-bottom: 20px;
+      .size(240px, 47px);
+      .opacity(0.5);
+      background-color: rgba(255, 255, 255, 0.25);
+      border: 1px solid #80909c;
+      .border-radius(5px);
+    }
+    .btn-green {
+      min-width: 190px;
+      margin: 0 auto;
+    }
+    .links {
+      display: flex;
+      justify-content: space-between;
+      color: #999fa7;
+      font-size: 14px;
+      margin-top: 20px;
+      font-style: italic;
+    }
+  }
+  .checkbox {
+    display: flex;
+    align-items: center;
+    margin: 10px 0 32px;
+    padding-left: 20px;
+    input {
+      display: none;
+      &:checked + label {
+        background-image: url("../img/checkbox-active.png");
+      }
+      & + label {
+        .size(25px);
+        background: url("../img/checkbox.png");
+        .transition(background .2s);
+        cursor: pointer;
+        margin: 0 10px 0 0;
+      }
+    }
+    p {
+      font-size: 12px;
+      .opacity(0.7);
+      color: #5e6977;
+      a {
+        display: block;
+        color: #2d8d92;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .main {
+    padding: 50px 10px;
+    .d-flex {
+      flex-wrap: wrap;
+      justify-content: center;
+      .button {
+        margin-bottom: 15px;
+      }
+    }
+    .carousel-indicators {
+      bottom: -25px;
+    }
+  }
+
+  .modal {
+    .modal-dialog {
+      margin: 50px auto;
+    }
+  }
+}
